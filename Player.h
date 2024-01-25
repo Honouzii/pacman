@@ -1,14 +1,13 @@
 #pragma once
 #include "Engine/GameObject.h"
-class stage :
+class Player :
     public GameObject
 {
-	int hFloor_;
-	int hBlock_;
+	int hModel_;
 public:
 	//コンストラクタ
 	//引数：parent  親オブジェクト（SceneManager）
-	stage(GameObject* parent);
+	Player(GameObject* parent);
 
 	//初期化
 	void Initialize() override;
