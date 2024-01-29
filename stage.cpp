@@ -1,6 +1,7 @@
 #include "stage.h"
 #include "Engine/Model.h"
 #include "Engine/Camera.h"
+#include "Engine/CsvReader.h"
 
 
 
@@ -8,6 +9,21 @@
 stage::stage(GameObject* parent)
 	: GameObject(parent, "stage")
 {
+	CsvReader csv;
+	csv.Load("map.csv");
+	int STAGE_X = csv.GetWidth();
+	int STAGE_Y= csv.GetHeight();
+
+	for (int i = 0; i < STAGE_Y; i++) {
+		vector<int>sdata(STAGE_X, 0);
+		stageData_.push_back(sdata);
+	}
+
+	for (int j = 0; j < STAGE_Y; j++) {
+		for (int i = 0; i < STAGE_X; i++) {
+			stageData_[j][i] = csv.GetValue(i, j);
+		}
+	}
 }
 
 void stage::Initialize()
@@ -28,18 +44,19 @@ void stage::Draw()
 {
 	Transform stagefloor;
 	stagefloor.position_ = { 0,0,0 };
-	for (float i = 0; i < 15; i++) {
-		for (float j = 0; j < 15; j++) {
-			stagefloor.position_ = { (float)i,0,(float)j };
-			if (i == 0 || j == 0 || i == 14 || j == 14) {
+
+	for (int z = 0; z < 15; z++) {
+		for (int x = 0; x < 15; x++) {
+			stagefloor.position_ = { (float)x,0, (float)(14 - z) };
+			if (stageData_[z][x] == 1) {
 				Model::SetTransform(hBlock_, stagefloor);
 				Model::Draw(hBlock_);
 			}
-			Model::SetTransform(hFloor_, stagefloor);
-			Model::Draw(hFloor_);
+			else {
+				Model::SetTransform(hFloor_, stagefloor);
+				Model::Draw(hFloor_);
+			}
 		}
-		Model::SetTransform(hFloor_, stagefloor);
-		Model::Draw(hFloor_);
 	}
 }
 

@@ -4,6 +4,7 @@ class Player :
     public GameObject
 {
 	int hModel_;
+	float speed;
 public:
 	//コンストラクタ
 	//引数：parent  親オブジェクト（SceneManager）
