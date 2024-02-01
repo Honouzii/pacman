@@ -37,11 +37,16 @@ void Player::Update()
 		move = XMVECTOR{ 1,0,0,0 };
 	}
 	XMVECTOR pos = XMLoadFloat3(&(transform_.position_));
+	/*XMVECTOR posTmp = XMVectorZero();
+	posTmp = pos + PLAYER_MOVE_SPEED * move;
+	if (map[ty][tx] == STAGE_OBJ::FLOOR) {
+		pos = posTmp;
+	}*/
 	pos = pos + PLAYER_MOVE_SPEED * move;
 	Debug::Log("(x,y=");
 	Debug::Log(XMVectorGetX(pos));
 	Debug::Log(",");
-	Debug::Log(XMVectorGetX(pos), true);
+	Debug::Log(XMVectorGetZ(pos), true);
 	XMStoreFloat3(&(transform_.position_), pos);
 
 	XMVECTOR vdot = XMVector3Dot(vFront, move);

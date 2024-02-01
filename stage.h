@@ -4,6 +4,11 @@
 
 using std::vector;
 
+enum STAGE_OBJ {
+	FLOOR,
+	WALL,
+};
+
 
 class stage :
     public GameObject
@@ -11,6 +16,7 @@ class stage :
 	int hFloor_;
 	int hBlock_;
 	vector<vector<int>>stageData_;
+	int stageWidth_, stageHeight_;
 public:
 	//コンストラクタ
 	//引数：parent  親オブジェクト（SceneManager）

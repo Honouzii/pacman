@@ -11,16 +11,17 @@ stage::stage(GameObject* parent)
 {
 	CsvReader csv;
 	csv.Load("map.csv");
-	int STAGE_X = csv.GetWidth();
-	int STAGE_Y= csv.GetHeight();
+	stageWidth_ = csv.GetWidth();
+	stageHeight_ = csv.GetHeight();
 
-	for (int i = 0; i < STAGE_Y; i++) {
-		vector<int>sdata(STAGE_X, 0);
+
+	for (int i = 0; i < stageHeight_; i++) {
+		vector<int>sdata(stageWidth_, 0);
 		stageData_.push_back(sdata);
 	}
 
-	for (int j = 0; j < STAGE_Y; j++) {
-		for (int i = 0; i < STAGE_X; i++) {
+	for (int j = 0; j < stageHeight_; j++) {
+		for (int i = 0; i < stageWidth_; i++) {
 			stageData_[j][i] = csv.GetValue(i, j);
 		}
 	}
