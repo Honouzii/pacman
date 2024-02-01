@@ -101,8 +101,12 @@
     <ClCompile Include="PlayScene.cpp">
       <Filter>リソース ファイル\PLAY</Filter>
     </ClCompile>
-    <ClCompile Include="stage.cpp" />
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Player.cpp">
+      <Filter>リソース ファイル\PLAY</Filter>
+    </ClCompile>
+    <ClCompile Include="stage.cpp">
+      <Filter>リソース ファイル\PLAY</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -177,8 +181,12 @@
     <ClInclude Include="PlayScene.h">
       <Filter>リソース ファイル\PLAY</Filter>
     </ClInclude>
-    <ClInclude Include="stage.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="Player.h">
+      <Filter>リソース ファイル\PLAY</Filter>
+    </ClInclude>
+    <ClInclude Include="stage.h">
+      <Filter>リソース ファイル\PLAY</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">
