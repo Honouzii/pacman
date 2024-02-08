@@ -64,4 +64,10 @@ void stage::Draw()
 
 void stage::Release()
 {
+	for (int i = 0; i < stageHeight_; i++)
+	{
+		stageData_[i].clear();
+	}
+	stageData_.clear();
+
 }
