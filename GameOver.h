@@ -1,21 +1,13 @@
 #pragma once
 #include "Engine/GameObject.h"
-
-
-class stage;
-
-class Player :
+class GameOver :
     public GameObject
 {
-	int hModel_;
-	float speed_;
-	stage* pStage_;
-	int hpMax_;
-	int hpCrr_;
+	int hPct_;
 public:
 	//コンストラクタ
 	//引数：parent  親オブジェクト（SceneManager）
-	Player(GameObject* parent);
+	GameOver(GameObject* parent);
 
 	//初期化
 	void Initialize() override;

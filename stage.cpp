@@ -5,12 +5,21 @@
 
 
 
+bool stage::IsWall(int _x, int _y)
+{
+	if (stageData_[_y][_x] == STAGE_OBJ::WALL) {
+		return true;
+	}
+	return false;
+}
+
 //コンストラクタ
 stage::stage(GameObject* parent)
 	: GameObject(parent, "stage")
 {
 	CsvReader csv;
 	csv.Load("map.csv");
+
 	stageWidth_ = csv.GetWidth();
 	stageHeight_ = csv.GetHeight();
 

@@ -1,21 +1,15 @@
 #pragma once
 #include "Engine/GameObject.h"
-
-
-class stage;
-
-class Player :
+class TitImage :
     public GameObject
 {
-	int hModel_;
-	float speed_;
-	stage* pStage_;
-	int hpMax_;
-	int hpCrr_;
+private:
+	int hPict_;
 public:
 	//コンストラクタ
 	//引数：parent  親オブジェクト（SceneManager）
-	Player(GameObject* parent);
+	TitImage(GameObject* parent);
+	~TitImage();
 
 	//初期化
 	void Initialize() override;
